@@ -1,0 +1,208 @@
+// Define styles for blocks of content scoped within the .copy rather than
+// making them global. Global styles will be constantly overridden.
+// Add a class of .copy to a div and the contents will render as a block of copy text
+
+%copy {
+
+  &.copy--inverse {
+    color: #fff;
+    a {
+      color: #fff;
+      &:hover {
+        color: #fff;
+      }
+    }
+
+    h1, h2, h3, h4 {
+      @extend .title--white;
+    }
+  }
+
+  p,
+  ul,
+  ol {
+    @include improve-text-rendering;
+    margin:0 0 baseline(0.75) 0;
+
+    &:last-child {
+      margin-bottom:0;
+    }
+  }
+
+   *:first-child {
+    margin-top:0;
+  }
+
+  a {
+    @extend .anchor-1;
+  }
+
+  ul, ol {
+    padding-left: $spacing-normal;
+
+    li {
+      margin-bottom: 10px;
+    }
+  }
+
+  ul {
+    margin-left: $spacing-normal;
+    li {
+      list-style-position:outside;
+    }
+  }
+
+  ol {
+
+    li {
+      list-style-type:decimal;
+      list-style-position:inside;
+      margin-bottom: spacing(1);
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  li {
+    display:list-item;
+  }
+
+  h1,h2,h3,h4,h5,h6 {}
+
+  h1 {
+    @extend .title-1;
+    @extend .title--green;
+    margin-top: spacing(4);
+    margin-bottom: spacing(2);
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  h2 {
+    @extend .title-2;
+    @extend .title--blue;
+    margin-top: spacing(3);
+    margin-bottom: spacing(1);
+  }
+
+  h3 {
+    @extend .title-3;
+    @extend .title--grey;
+    margin-top: spacing(3);
+    margin-bottom: spacing(1);
+  }
+
+  h4 {
+    //@extend .title-2;
+    margin-bottom: spacing(2);
+  }
+
+  h5 {
+    //@extend .title-7;
+    margin-bottom: spacing(2);
+  }
+
+  h6 {
+
+  }
+
+  em {
+    font-style:italic;
+  }
+
+  strong {
+    font-weight:bold;
+  }
+}
+
+.copy {
+  @extend %copy;
+}
+
+.copy--note {
+  font-size: 13px;
+  line-height: 18px;
+
+  p,
+  ul,
+  ol {
+    margin-bottom:10px;
+  }
+}
+
+
+.copy-list-1 {
+  border-bottom: 1px solid #e1e1e1;
+  border-radius: 5px 5px 0 0;
+  box-shadow: 0 0 5px rgba(#000,.07);
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  .list__item {
+    color: #555;
+    overflow: hidden;
+    border-top: 1px solid #e1e1e1;
+    background: #fff;
+  }
+
+  .list__item:nth-of-type(even) {
+    background: #f6f6f6;
+  }
+
+  .title {
+    float: left;
+    text-align: right;
+    width: 80px;
+
+    // IE8
+    .no-csstransitions & {
+      width: 88px;
+    }
+  }
+
+  .description {
+    border-right: 1px solid #e1e1e1;
+    overflow: hidden;
+  }
+
+  .list__item span {
+    @include improve-text-rendering;
+    border-left: 1px solid #e1e1e1;
+    display: block;
+    padding: 0 20px;
+    line-height: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: 0 1px 0 #fff;
+  }
+
+  .list__item--header {
+    border-radius: 5px 5px 0 0;
+    border-top-color: darken($grey-darkest, 3);
+  }
+
+  .list__item--header span {
+    @include vertical-gradient($grey-darkest, darken($grey-darkest, 3));
+    border-color: darken($grey-darkest, 4);
+    color: $white;
+    text-shadow: 0 -1px 0 #000;
+  }
+
+  .list__item--header .title {
+    border-radius: 5px 0 0 0;
+  }
+
+  .list__item--header .description {
+    border-radius: 0 5px 0 0;
+  }
+}
+
+.copy--large {
+  font-size: 21px;
+  line-height: 27px;
+}
