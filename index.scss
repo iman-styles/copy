@@ -69,11 +69,14 @@
     display:list-item;
   }
 
-  h1,h2,h3,h4,h5,h6 {}
+  h1,h2,h3,h4,h5,h6 {
+    @extend .title--roboto;
+  }
 
   h1 {
     @extend .title-1;
     @extend .title--green;
+    @extend .title--weight300;
     margin-top: spacing(4);
     margin-bottom: spacing(2);
 
@@ -85,6 +88,7 @@
   h2 {
     @extend .title-2;
     @extend .title--blue;
+    @extend .title--weight400;
     margin-top: spacing(3);
     margin-bottom: spacing(1);
   }
@@ -92,6 +96,7 @@
   h3 {
     @extend .title-3;
     @extend .title--grey;
+    @extend .title--weight400;
     margin-top: spacing(3);
     margin-bottom: spacing(1);
   }
